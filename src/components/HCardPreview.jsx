@@ -12,6 +12,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     margin: '30% 10%',
   },
+  previewTitle: {
+    backgroundColor: 'rgb(227, 230, 233)',
+    fontSize: '2vw',
+    color: 'rgb(159, 174, 176)',
+    marginTop: '30%',
+    // revert margin back
+    marginBottom: '-30%',
+    marginLeft: '58%',
+  },
   colorArea: {
     backgroundColor: 'rgb(48,70,87)',
     height: '12vw',
@@ -98,84 +107,89 @@ const HCardPreview = (props) => {
   }, [givenName, surName])
 
   return (
-    <Card className={classes.root}>
-      <div className={classes.colorArea}>
-        <Typography variant="h2" className={classes.name}>
-          {displayName}
-        </Typography>
-        <img className={classes.profile} src={profileImg} alt="profile" />
-      </div>
-      <CardContent className={classes.cardContent}>
-        <TextField
-          fullWidth
-          value={hCardState.email}
-          InputProps={{
-            startAdornment: (
-              <Box mr={5}>
+    <>
+      <Typography variant="h1" className={classes.previewTitle}>
+        HCARD PREVIEW
+      </Typography>
+      <Card className={classes.root}>
+        <div className={classes.colorArea}>
+          <Typography variant="h2" className={classes.name}>
+            {displayName}
+          </Typography>
+          <img className={classes.profile} src={profileImg} alt="profile" />
+        </div>
+        <CardContent className={classes.cardContent}>
+          <TextField
+            fullWidth
+            value={hCardState.email}
+            InputProps={{
+              startAdornment: (
+                <Box mr={5}>
+                  <InputAdornment position="start">
+                    <span>EMAIL</span>
+                  </InputAdornment>
+                </Box>
+              ),
+            }}
+          />
+          <TextField
+            fullWidth
+            value={hCardState.phone}
+            InputProps={{
+              startAdornment: (
+                <Box mr={4}>
+                  <InputAdornment position="start">
+                    <span>PHONE</span>
+                  </InputAdornment>
+                </Box>
+              ),
+            }}
+          />
+          <TextField
+            fullWidth
+            value={addressFirstLine}
+            InputProps={{
+              startAdornment: (
+                <Box mr={1.5}>
+                  <InputAdornment position="start">
+                    <span>ADDRESS</span>
+                  </InputAdornment>
+                </Box>
+              ),
+            }}
+          />
+          <TextField
+            value={addressSecondLine}
+            fullWidth
+            InputProps={{
+              className: classes.secondLinePadding,
+            }}
+          />
+          <TextField
+            className={classes.halfWidth}
+            value={hCardState.postcode}
+            InputProps={{
+              startAdornment: (
                 <InputAdornment position="start">
-                  <span>EMAIL</span>
+                  <span>POSTCODE</span>
                 </InputAdornment>
-              </Box>
-            ),
-          }}
-        />
-        <TextField
-          fullWidth
-          value={hCardState.phone}
-          InputProps={{
-            startAdornment: (
-              <Box mr={4}>
+              ),
+            }}
+          />
+          <TextField
+            className={classes.halfWidth}
+            value={hCardState.country}
+            InputProps={{
+              startAdornment: (
                 <InputAdornment position="start">
-                  <span>PHONE</span>
+                  <span>COUNTRY</span>
                 </InputAdornment>
-              </Box>
-            ),
-          }}
-        />
-        <TextField
-          fullWidth
-          value={addressFirstLine}
-          InputProps={{
-            startAdornment: (
-              <Box mr={1.5}>
-                <InputAdornment position="start">
-                  <span>ADDRESS</span>
-                </InputAdornment>
-              </Box>
-            ),
-          }}
-        />
-        <TextField
-          value={addressSecondLine}
-          fullWidth
-          InputProps={{
-            className: classes.secondLinePadding,
-          }}
-        />
-        <TextField
-          className={classes.halfWidth}
-          value={hCardState.postcode}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <span>POSTCODE</span>
-              </InputAdornment>
-            ),
-          }}
-        />
-        <TextField
-          className={classes.halfWidth}
-          value={hCardState.country}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <span>COUNTRY</span>
-              </InputAdornment>
-            ),
-          }}
-        />
-      </CardContent>
-    </Card>
+              ),
+            }}
+          />
+        </CardContent>
+      </Card>
+    </>
   )
 }
 

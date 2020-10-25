@@ -28,10 +28,9 @@ To Format Code:
 
 `npm run format`
 
-
 ## More Ideas
 
-- Use Terraform, cloudfront, CDN, S3, route 53 and AWS Code Deploy to build a CICD pipeline to deploy this project into online service with efficiency and security 
+- Use Terraform, cloudfront, CDN, S3, route 53 and AWS Code Deploy to build a CICD pipeline to deploy this project into online service with efficiency and security
 
 - If the avatar image having issue during being uploaded, the frontend could display error message to notify the user
 
